@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   StyleSheet,
   Text,
@@ -19,22 +20,26 @@ const AboutTheMeal = ({route, navigation}) => {
           {aboutMeal.duration}m {aboutMeal.complexity.toUpperCase()}{' '}
           {aboutMeal.affordability.toUpperCase()}
         </Text>
-        <Text style={styles.header}>Ingredients</Text>
+        <View style={styles.headerWrapper}>
+          <Text style={styles.header}>Ingredients</Text>
+        </View>
         <FlatList
           data={aboutMeal.ingredients}
           renderItem={({item}) => (
-            <View style={styles.backgroundIngredient}>
-              <Text style={styles.textIngredient}>{item}</Text>
+            <View style={styles.backgroundItem}>
+              <Text style={styles.textItem}>{item}</Text>
             </View>
           )}
           keyExtractor={(item, index) => index.toString()}
         />
-        <Text style={styles.header}>Step</Text>
+        <View style={styles.headerWrapper}>
+          <Text style={styles.header}>Steps</Text>
+        </View>
         <FlatList
           data={aboutMeal.steps}
           renderItem={({item}) => (
-            <View style={styles.backgroundIngredient}>
-              <Text style={styles.textIngredient}>{item}</Text>
+            <View style={styles.backgroundItem}>
+              <Text style={styles.textItem}>{item}</Text>
             </View>
           )}
           keyExtractor={(item, index) => index.toString()}
@@ -51,40 +56,49 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
   },
-
   image: {
     width: '100%',
-    height: 200,
+    height: 250,
     marginVertical: 10,
+    borderRadius: 10,
   },
-
   title: {
-    fontSize: 25,
+    fontSize: 26,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: 'black',
-    marginBottom: 15,
+    color: '#333',
+    marginBottom: 10,
   },
   info: {
-    color: 'black',
+    color: '#666',
     textAlign: 'center',
-    marginBottom: 15,
+    marginBottom: 20,
+    fontSize: 16,
+  },
+  headerWrapper: {
+    width: '75%',
+    borderBottomColor: '#EAB39D',
+    borderBottomWidth: 2,
+    marginBottom: 10,
+    paddingBottom: 5,
   },
   header: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: 'bold',
     textAlign: 'center',
     color: '#EAB39D',
   },
-  backgroundIngredient: {
+  backgroundItem: {
     backgroundColor: '#EAB39D',
-    borderRadius: 5,
+    borderRadius: 10,
     marginVertical: 5,
+    padding: 10,
+    width: '100%',
   },
-  textIngredient: {
+  textItem: {
     textAlign: 'center',
     fontSize: 16,
-    color: 'black',
+    color: '#333',
   },
 });
 

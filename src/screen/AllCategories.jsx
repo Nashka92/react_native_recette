@@ -6,6 +6,7 @@ const AllCategories = ({navigation}) => {
   return (
     <View style={styles.screen}>
       <FlatList
+        numColumns={2}
         data={CATEGORIES}
         renderItem={itemData => (
           <TouchableOpacity
